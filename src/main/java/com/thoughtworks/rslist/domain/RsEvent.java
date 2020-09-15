@@ -1,10 +1,10 @@
 package com.thoughtworks.rslist.domain;
 
-public class RsEvents {
+public class RsEvent {
     private String eventName;
     private String keyWord;
 
-    public RsEvents(String eventName, String keyWord) {
+    public RsEvent(String eventName, String keyWord) {
         this.eventName = eventName;
         this.keyWord = keyWord;
     }
