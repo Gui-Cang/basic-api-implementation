@@ -28,26 +28,26 @@ public class RsController {
     }
 
     @PostMapping("/rs/event")
-    public  void addRsEvent(@RequestBody RsEvent rsEvent) {
+    public void addRsEvent(@RequestBody RsEvent rsEvent) {
         rsList.add(rsEvent);
     }
 
     @DeleteMapping("/rs/{deleteIndex}")
-    public  void deleteRsEvent(@PathVariable int deleteIndex) {
+    public void deleteRsEvent(@PathVariable int deleteIndex) {
         rsList.remove(deleteIndex - 1);
     }
 
     @DeleteMapping("rs/list")
     public List<RsEvent> deleteRsEventsBetween(@RequestParam(required = false) Integer start, @RequestParam(required = false) Integer end) {
-       rsList.removeAll(rsList.subList(start - 1 , end));
-       return  rsList;
+        rsList.removeAll(rsList.subList(start - 1, end));
+        return rsList;
     }
-    
+
     @DeleteMapping("rs/list")
     public List<RsEvent> deleteOneRsEventsBetween(@PathVariable RsEvent uselessRs) {
         Iterator iterator = rsList.iterator();
         while (iterator.hasNext()) {
-            if (iterator.next().equals(uselessRs)){
+            if (iterator.next().equals(uselessRs)) {
                 iterator.remove();
             }
         }
@@ -55,7 +55,8 @@ public class RsController {
     }
 
     @PatchMapping("rs/{modifiedIndex}")
-    public List<RsEvent> modifyRsEventsBetween(@PathVariable int modifiedIndex, @RequestParam RsEvent newRs) {
+    public List<RsEvent> modifyOneRsEvent(@PathVariable int modifiedIndex, @RequestParam RsEvent newRs) {
         return (List<RsEvent>) rsList.set(modifiedIndex - 1, newRs);
     }
+
 }
