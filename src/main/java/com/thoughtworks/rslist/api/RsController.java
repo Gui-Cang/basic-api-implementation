@@ -55,7 +55,7 @@ public class RsController {
     }
 
     @PatchMapping("rs/{modifiedIndex}")
-    public List<RsEvent> modifyOneRsEvent(@PathVariable int modifiedIndex, @RequestParam RsEvent newRs) {
+    public List<RsEvent> modifyOneRsEvent(@PathVariable int modifiedIndex, @RequestBody RsEvent newRs) {
         return (List<RsEvent>) rsList.set(modifiedIndex - 1, newRs);
     }
 

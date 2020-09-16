@@ -93,7 +93,7 @@ public class RsListApplicationTests {
         mockMvc.perform(patch("/rs/3").content(newJson).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
         mockMvc.perform(get("/rs/list"))
-                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$", hasSize(3)))
                 .andExpect(jsonPath("$[2].eventName", is("修改事件")))
                 .andExpect(jsonPath("$[2].keyWord", is("暂无")));
     }
